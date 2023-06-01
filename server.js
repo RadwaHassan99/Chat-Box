@@ -1,12 +1,12 @@
-// Import required modules
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
 
-// Create the express app and server
+
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
+const env = require("./config.js")
 
 // Serve static files from the public directory
 app.use(express.static(__dirname + '/public'));
@@ -22,7 +22,7 @@ io.on('connection', socket => {
 
   // When a user logs in, set their username and broadcast a message to all other clients
   socket.on('login', ({ name, code }, callback) => {
-    const validCode = '1234';
+    const validCode = env.secretCode;
 
     if (code !== validCode) {
       if (typeof callback === 'function') {
