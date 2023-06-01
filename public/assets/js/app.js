@@ -1,13 +1,13 @@
 const socket = io();
-const loginForm = get("#login-form");
-const loginSection = get("#login-section");
-const chatSection = get("#chat-section");
-const msgerForm = get(".msger-form");
-const msgerInput = get(".msger-input");
-const msgerChat = get(".msger-chat");
-const msgerHeaderTitle = get("#header-title");
-const alertJoin = get("#join-alert");
-const alertLeave = get("#leave-alert");
+const loginForm = document.querySelector("#login-form");
+const loginSection = document.querySelector("#login-section");
+const chatSection = document.querySelector("#chat-section");
+const msgerForm = document.querySelector(".msger-form");
+const msgerInput = document.querySelector(".msger-input");
+const msgerChat = document.querySelector(".msger-chat");
+const msgerHeaderTitle = document.querySelector("#header-title");
+const alertJoin = document.querySelector("#join-alert");
+const alertLeave = document.querySelector("#leave-alert");
 const user1_NAME = "you";
 let username;
 const userId = generateRandomId();
@@ -22,8 +22,8 @@ msgerForm.addEventListener("submit", handleChatSubmit);
 
 function handleLoginSubmit(event) {
   event.preventDefault();
-  username = get("#name").value;
-  const code = get("#code").value;
+  username = document.querySelector("#name").value;
+  const code = document.querySelector("#code").value;
   socket.emit("login", {name:username,code} , handleLoginResponse);
 }
 
@@ -97,10 +97,6 @@ function appendMessage(username, side, text) {
 
 function generateRandomId() {
   return Math.floor(Math.random() * 10000);
-}
-
-function get(selector, root = document) {
-  return root.querySelector(selector);
 }
 
 function formatDate(date) {
