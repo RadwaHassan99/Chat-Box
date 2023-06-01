@@ -20,5 +20,4 @@ To run the project, follow these steps:
 3. Install the project dependencies by running `npm install`.
 4. Start the server by running `npm start`.
 5. Open your web browser and go to `http://localhost:7100/` to access the chat application.
-Note: you can use "nodemon server" 
 
