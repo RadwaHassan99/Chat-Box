@@ -22,9 +22,7 @@ io.on('connection', socket => {
 
   // When a user logs in, set their username and broadcast a message to all other clients
   socket.on('login', ({ name, code }, callback) => {
-    const validCode = env.secretCode;
-
-    if (code !== validCode) {
+    if (code !== env.secretCode) {
       if (typeof callback === 'function') {
         callback('Invalid chat code');
       }
@@ -35,14 +33,12 @@ io.on('connection', socket => {
       callback(null);
     }
 
-    console.log(name);
     socket.username = name;
     socket.broadcast.emit('user connected', { username: name });
   });
 
   // When a user sends a message, broadcast it to all other clients
   socket.on('chat message', data => {
-    console.log('message: ' + JSON.stringify(data));
     io.emit('chat message', { username: data.username, userId: data.userId, msgText: data.msgText });
   });
 });
