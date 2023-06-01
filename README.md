@@ -1,7 +1,7 @@
 # Chat-Box
 
 ## Description
-This is a simple chat web application built using Node.js, Express, and Socket.IO.<br>
+This is a simple chat web application built using Express js, and Socket.IO.<br>
 The application allows users to join a chat room by providing a username and a chat code.<br>
 Once logged in, users can send and receive real-time messages with other connected users.<br>
 The chat application also features a notification system that informs other users when a new user joins or leaves the chat.
